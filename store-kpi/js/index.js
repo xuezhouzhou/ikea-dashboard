@@ -16,10 +16,6 @@
     });  
   }
 
-  getStroeKpiData();
-  
-  
-
   //下拉列表
   $('.xzz-select-wrap').on('click',function(){
     $(this).toggleClass("border-radius-none");
@@ -58,23 +54,43 @@
         var indexT = removeBfh(item['Share OF Receipts-Continue']);
         var indexU = removeBfh(item['Share OF Receipts-Reactive']);
         var indexV = removeBfh(item['Share OF Receipts-Non Member']);
-
         var shareOfReceiptsData = [indexR,indexS,indexT,indexU,indexV];
-
-        console.log(shareOfReceiptsData);
-
+        
         $("#indexR").text(indexR);
         $("#indexS").text(indexS);
         $("#indexT").text(indexT);
         $("#indexU").text(indexU);
         $("#indexV").text(indexV);
 
+        //PartB 左侧的饼图显示
+        showPie(shareOfReceiptsData,'share-of-receipts');
+
+        //PartB 右侧
+        var indexW = removeBfh(item['Share OF T/O-New']);
+        var indexX = removeBfh(item['Share OF T/O-New Repeat']);
+        var indexY = removeBfh(item['Share OF T/O-Continue']);
+        var indexZ = removeBfh(item['Share OF T/O-Reactive']);
+        var indexAa = removeBfh(item['Share OF T/O-Non Member']);
+        var shareOfToData = [indexW,indexX,indexY,indexZ,indexAa];
+        
+        $("#indexW").text(indexW);
+        $("#indexX").text(indexX);
+        $("#indexY").text(indexY);
+        $("#indexZ").text(indexZ);
+        $("#indexAa").text(indexAa);
+        
+        //PartB 右侧的饼图显示
+        showPie(shareOfToData,'share-of-to');
       }
     });
   }
   
-  showData('2014','12','058TJ');
-
+  $(function(){ 
+    getStroeKpiData();
+    showData('2014','12','058TJ') 
+  });
+     
+  
   
 
   //删除数据百分号
@@ -82,129 +98,78 @@
     return str.replace('%','');
   }
 
-  //获取左侧饼图数据
-  function getPieLeftData(){
-  
-  }
-
-
-
-var option = {
-  series : [
-    {
-      type:'pie',
-      radius : ['55%', '75%'],
-      itemStyle : {
-        normal : {
-          label : {
-            show : false
+  //PartB 饼图显示
+  function showPie(arrData,id){
+    var option = {
+      series : [
+        {
+          type:'pie',
+          radius : ['55%', '75%'],
+          itemStyle : {
+            normal : {
+              label : {
+                show : false
+              },
+              labelLine : {
+                show : false
+              }
+            }
           },
-          labelLine : {
-            show : false
-          }
-        }
-      },
-      data:[
-        {
-          value:335, 
-          itemStyle:{
-            normal:{
-              color:'#964b34'
+          data:[
+            {
+              value:335, 
+              itemStyle:{
+                normal:{
+                  color:'#964b34'
+                }
+              }
+            },
+            {
+              value:310, 
+              itemStyle:{
+                normal:{
+                  color:'#368355'
+                }
+              }
+            },
+            {
+              value:234, 
+              itemStyle:{
+                normal:{
+                  color:'#2569a1'
+                }
+              }  
+            },
+            {
+              value:135, 
+              itemStyle:{
+                normal:{
+                  color:'#764e91'
+                }
+              }
+            },
+            {
+              value:1548, 
+              itemStyle:{
+                normal:{
+                  color:'#a86d2c'
+                }
+              }
             }
-          }
-        },
-        {
-          value:310, 
-          itemStyle:{
-            normal:{
-              color:'#368355'
-            }
-          }
-        },
-        {
-          value:234, 
-          itemStyle:{
-            normal:{
-              color:'#2569a1'
-            }
-          }  
-        },
-        {
-          value:135, 
-          itemStyle:{
-            normal:{
-              color:'#764e91'
-            }
-          }
-        },
-        {
-          value:1548, 
-          itemStyle:{
-            normal:{
-              color:'#a86d2c'
-            }
-          }
+          ]
         }
       ]
-    }
-  ]
-};
+    }; 
 
-var option2 = {
-  tooltip : {
-    trigger: 'item',
-    formatter: "{a} <br/>{b} : {c} ({d}%)"
-  },
-  legend: {
-    orient : 'vertical',
-    x : 'left',
-    data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
-  },
-  calculable : true,
-  series : [
-    {
-      name:'访问来源',
-      type:'pie',
-      radius : ['60%', '80%'],
-      itemStyle : {
-        normal : {
-          label : {
-            show : false
-          },
-          labelLine : {
-            show : false
-          }
-        },
-        emphasis : {
-          label : {
-            show : true,
-            position : 'center',
-            textStyle : {
-              fontSize : '30',
-              fontWeight : 'bold'
-            }
-          }
-        }
-      },
-      data:[
-        {value:335, name:'直接访问'},
-        {value:310, name:'邮件营销'},
-        {value:234, name:'联盟广告'},
-        {value:135, name:'视频广告'},
-        {value:1548, name:'搜索引擎'}
-      ]
+    for(var i=0;i<option.series[0].data.length;i++){
+      option.series[0].data[i].value = arrData[i];
     }
-  ]
-};
 
-  //饼图显示
-  function showPieChart(option,id){
     var myChart = echarts.init(document.getElementById(id));
     myChart.setOption(option);
   }
 
-
-  showPieChart(option,'share-of-receipts');
+  //showPieChart(option,'share-of-receipts');
   //showPieChart(option2,'share-of-to');
 
 })(jQuery,echarts);

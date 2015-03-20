@@ -188,6 +188,7 @@ for ($i = 2; $i <= 18; $i++) {
     <!-- 指标饼图展示 start -->
     <div class="container-fluid m-t-15">
       <div class="row" id="partB">
+        <!-- 左侧饼图 start -->
         <div class="col-xs-6 padding-right-0">
           <div class="xzz-panel">
             <div class="pie-wrap">
@@ -207,11 +208,28 @@ for ($i = 2; $i <= 18; $i++) {
             </div>
           </div>
         </div>
+        <!-- 左侧饼图 end -->
+        <!-- 右侧饼图 start -->
         <div class="col-xs-6">
           <div class="xzz-panel">
-            <div id="share-of-to"></div>
+            <div class="pie-wrap">
+              <div id="share-of-to" class="pie-left"></div>
+              <div class="pie-right">
+                <ul>
+                  <li class="li1"><i></i><p>New<br><span id="indexW">Loading...</span>%</p></li>
+                  <li class="li2"><i></i><p>New Repeat<br><span id="indexX">Loading...</span>%</p></li>
+                  <li class="li3"><i></i><p>Continue<br><span id="indexY">Loading...</span>%</p></li>
+                  <li class="li4"><i></i><p>Reactive<br><span id="indexZ">Loading...</span>%</p></li>
+                  <li class="li5"><i></i><p>Non member<br><span id="indexAa">Loading...</span>%</p></li>
+                </ul>
+              </div>
+              <div class="pie-hover">
+                <p>Share OF<br>T/O</p>
+              </div>
+            </div>
           </div>
         </div>
+        <!-- 右侧饼图 start -->
       </div>
     </div>
     <!-- 指标饼图展示 end -->
