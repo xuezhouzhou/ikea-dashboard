@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>密码验证</title>
+<style type="text/css">
+*{ 
+	margin:0; 
+	padding:0; 
+}
+body{ 
+	background:#deb584; 
+}
+#check-box{ 
+	width:400px; 
+	height:283px; 
+	position:absolute; 
+	left:50%; 
+	top:50%; 
+	margin-left:-200px; 
+	margin-top:-141px; 
+	background-image:url(static/images/login-bg.jpg);
+}
+#password{ 
+	border: none;
+	position: absolute;
+	left: 31px;
+	top: 120px;
+	width: 324px;
+	padding: 6px;
+	height: 14px;
+	border-radius: 5px;
+	outline: none;
+}
+#submit{
+	position: absolute;
+	left: 159px;
+	top: 193px;
+	width: 82px;
+	height: 35px;
+	background:none;
+	border:none;
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div id="check-box">
+	<form action="check.php" method="post" onSubmit="false">
+  	<input id="password" type="password" name="pass">
+    <input id="submit" type="submit" value="">
+ 	</form>
+</div>
+</body>
+</html>
