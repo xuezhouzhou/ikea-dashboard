@@ -71,9 +71,8 @@ body{
   border-top: 2px solid #fff;
   box-shadow: 0px 1px 2px 0px #333;
   margin-bottom: 20px;
-  min-height: 1000px;
+  min-height: 1600px;
 }
-
 
 .padding-right-0{
   padding-right:0;  
@@ -273,7 +272,6 @@ body{
   left:5px;
   top:5px;
 }
-
 #partB .pie-right li p{
   position: absolute;
   left:43px;
@@ -282,7 +280,6 @@ body{
   line-height: 20px;
   font-weight: bold;
 }
-
 #partB .pie-right .li1 i{
   background-color: #964b34;
 }
@@ -315,23 +312,60 @@ body{
 }
 /* partB end */
 
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  background-color:#EBDFD4;
-  /* border-radius:6px; */
+
+/* partC start */
+#partC .xzz-panel{
+  height: 140px;
 }
-::-webkit-scrollbar:vertical {
-  width:10px;
-  z-index:999;
+
+#partC .bar-container{
+  padding: 0 40px;
+  height: 140px;
+  
 }
-::-webkit-scrollbar:horizontal {
-  height:10px;
-  z-index:999;
+
+#partC .bar-container-inner{
+  height: 140px;
+  position: relative;
 }
-::-webkit-scrollbar-thumb{
-  background-color:#E1BC92;
-  /* border-radius:6px; */
+
+#partC .bar-text{
+  position: absolute;
+  top:20px;
+  font-size: 22px;
+  color: #7f6d54;
+  text-shadow: 2px 2px 2px #fff;
+  font-weight: 800;
 }
-::-webkit-scrollbar-thumb:hover {
-  background-color:#FF6347;
+
+#partC .bar-wrap{
+  position: absolute;
+  height: 40px;
+  background-color:#fff;
+  top:60px;
+  width: 100%;
 }
+
+#partC .bar-inner{
+  position: absolute;
+  height: 40px;
+  width: 60%;
+}
+
+#partC .bar-type1{
+  background-color:#358254;
+}
+
+#partC .bar-type2{
+  background-color:#2569a1;
+}
+
+#partC .bar-value{
+  position: absolute;
+  right: 15px;
+  height: 40px;
+  line-height: 42px;
+  color: #fff;
+  font-size: 22px;
+}
+/* partC end */

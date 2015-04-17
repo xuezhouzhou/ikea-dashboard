@@ -81,6 +81,12 @@
         
         //PartB 右侧的饼图显示
         showPie(shareOfToData,'share-of-to');
+
+        //PartC 
+        var indexAb = removeBfh(item['Receipts Index To Goal']);
+        var indexAc = removeBfh(item['T/O Index To Goal']);
+        showBar(indexAb,$("#indexAb"));
+        showBar(indexAc,$("#indexAc"));  
       }
     });
   }
@@ -90,8 +96,16 @@
     showData('2014','12','058TJ') 
   });
      
-  
-  
+  //指标选择下拉框
+  $('#store-select1 .item').on('click',function(){
+    var $_this = $(this);
+    var text = $_this.text();
+    //var data = $_this.attr('data');
+    $_this.parent().siblings('.cur-item').text(text);
+    //$_this.parent().siblings('.cur-item').attr('data',data);
+
+    showData('2014','12',text);
+  });
 
   //删除数据百分号
   function removeBfh(str){
@@ -117,7 +131,7 @@
           },
           data:[
             {
-              value:335, 
+              value:0, 
               itemStyle:{
                 normal:{
                   color:'#964b34'
@@ -125,7 +139,7 @@
               }
             },
             {
-              value:310, 
+              value:0, 
               itemStyle:{
                 normal:{
                   color:'#368355'
@@ -133,7 +147,7 @@
               }
             },
             {
-              value:234, 
+              value:0, 
               itemStyle:{
                 normal:{
                   color:'#2569a1'
@@ -141,7 +155,7 @@
               }  
             },
             {
-              value:135, 
+              value:0, 
               itemStyle:{
                 normal:{
                   color:'#764e91'
@@ -149,7 +163,7 @@
               }
             },
             {
-              value:1548, 
+              value:0, 
               itemStyle:{
                 normal:{
                   color:'#a86d2c'
@@ -169,7 +183,12 @@
     myChart.setOption(option);
   }
 
-  //showPieChart(option,'share-of-receipts');
-  //showPieChart(option2,'share-of-to');
-
+  //partC 条状图显示
+  function showBar(index,$obj){
+    var bfb = index>100 ? 100 : index;
+    $obj.text(index);
+    $barInner = $obj.parents('.bar-inner');
+    $barInner.css({'width':0});
+    $barInner.animate({'width':bfb+'%'},1000);
+  }
 })(jQuery,echarts);

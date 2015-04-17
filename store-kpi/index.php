@@ -33,7 +33,7 @@ for ($i = 2; $i <= 18; $i++) {
   $store_list[] = $ExcelReader->sheets[0]['cells'][$i][1];
 }
 
-//dump($excel_head);
+array_splice($excel_head,0,3);
 ?>
 <!doctype html>
 <html>
@@ -70,7 +70,7 @@ for ($i = 2; $i <= 18; $i++) {
     <div class="container-fluid m-t-15">
       <div class="row">
         <div class="col-xs-2 padding-right-0">
-          <div class="xzz-select-wrap" id="index-select">
+          <div class="xzz-select-wrap" id="store-select1">
             <div class="cur-item"><?=$store_list[0] ?></div>
             <div class="xzz-list">
               <?php foreach($store_list as $value) { ?>
@@ -80,13 +80,24 @@ for ($i = 2; $i <= 18; $i++) {
           </div>
         </div> 
         <div class="col-xs-2 padding-right-0">
-          <div class="xzz-select-wrap" id="index-select">
+          <div class="xzz-select-wrap" id="time-select">
             <div class="cur-item">2014-12</div>
             <div class="xzz-list">
               <div class="item">2015-03</div>
               <div class="item">2015-02</div>
               <div class="item">2015-01</div>
               <div class="item">2014-12</div>
+              <div class="item">2014-11</div>
+              <div class="item">2014-10</div>
+              <div class="item">2014-09</div>
+              <div class="item">2014-08</div>
+              <div class="item">2014-07</div>
+              <div class="item">2014-06</div>
+              <div class="item">2014-05</div>
+              <div class="item">2014-04</div>
+              <div class="item">2014-03</div>
+              <div class="item">2014-02</div>
+              <div class="item">2014-01</div>
             </div>
           </div>
         </div>
@@ -234,6 +245,68 @@ for ($i = 2; $i <= 18; $i++) {
     </div>
     <!-- 指标饼图展示 end -->
 
+    <!-- 指标条状展示 start -->
+    <div class="container-fluid m-t-15">
+      <div class="row" id="partC">
+        <!-- 左侧条状展示 start -->
+        <div class="col-xs-6 padding-right-0">
+          <div class="xzz-panel">
+            <div class="bar-container">
+              <div class="bar-container-inner">
+                <div class="bar-text">Receipts Index to Goal</div>
+                <div class="bar-wrap">
+                  <div class="bar-inner bar-type1">
+                    <div class="bar-value"><span id="indexAb">Loading...</span>%</div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="xzz-panel">
+            <div class="bar-container">
+              <div class="bar-container-inner">
+                <div class="bar-text">T/O Index to Goal</div>
+                <div class="bar-wrap">
+                  <div class="bar-inner bar-type2">
+                    <div class="bar-value"><span id="indexAc">Loading...</span>%</div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 指标条状展示 end -->
+
+    <!-- Store,指标 下拉框 start -->
+    <div class="container-fluid m-t-15">
+      <div class="row">
+        <div class="col-xs-2 padding-right-0">
+          <div class="xzz-select-wrap" id="store-select2">
+            <div class="cur-item"><?=$store_list[0] ?></div>
+            <div class="xzz-list">
+              <?php foreach($store_list as $value) { ?>
+                <div class="item"><?php echo $value ?></div>
+              <?php } ?>
+            </div>
+          </div>
+        </div> 
+        <div class="col-xs-2 padding-right-0">
+          <div class="xzz-select-wrap" id="index-select">
+            <div class="cur-item"><?=$excel_head[0] ?></div>
+            <div class="xzz-list">
+              <?php foreach($excel_head as $value) { ?>
+                <div class="item"><?=$value ?></div>
+              <?php } ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Store,指标 下拉框 end -->
   </div>
   <!-- main end -->
 </div>
